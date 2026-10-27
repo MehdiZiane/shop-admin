@@ -1,0 +1,8 @@
+<article [class.out-of-stock]="produit.stock === 0">
+  <img [src]="produit.imageUrl" [alt]="produit.name">
+  <h2>{{ produit.name | titlecase}}</h2>
+  <p>{{ produit.category }}</p>
+  <p>{{ produit.price | currency: 'EUR'}}</p>
+  <p>Stock : {{ produit.stock }}</p>
+  <button (click)="ajouter()" [disabled]="produit.stock === 0"> ajouter au panier</button>
+</article>
