@@ -1,6 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductCard } from '../../components/product-card/product-card';
+import { CartItem } from '../../models/cart-item';
 
 @Component({
   imports: [ProductCard],
@@ -24,9 +25,9 @@ export class Catalogue {
 
   compteur = signal(0);
   dernierAjout = signal('aucun');
-  ajouter(product: Product) {
-    this.compteur.update((n) => n + 1);
-    this.dernierAjout.set(product.name);
+  ajouter(item: CartItem) {
+    this.compteur.update((n) => n + item.quantity);
+    this.dernierAjout.set(`${item.quantity} x ${item.product.name}`);
   }
 
   categories = ['Informatique', 'Maison', 'Sport', 'Alimentation'];

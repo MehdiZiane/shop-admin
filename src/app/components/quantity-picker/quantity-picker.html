@@ -1,0 +1,5 @@
+<div class="picker">
+    <button type="button" (click)="moins()" [disabled]="value() <=1">-</button>
+    <span>{{value()}}</span>
+    <button type="button" (click)="plus()" [disabled]="value() >= max()">+</button>
+</div>

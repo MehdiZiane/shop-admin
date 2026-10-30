@@ -17,5 +17,8 @@
       <p>{{ product().category }}</p>
       <p>{{ product().price | currency: 'EUR' }}</p>
       <p>{{ product().stock | stockLabel }}</p>
+      @if (product().stock > 0){
+        <app-quantity-picker [(value)]="quantite" [max]="product().stock" />
+      }
       <button (click)="ajouter()" [disabled]="product().stock === 0">Ajouter au panier</button>
     </article>
