@@ -1,0 +1,11 @@
+<section class="panel">
+  <header>
+    <h2>{{ titre() }}</h2>
+  </header>
+  <div class="contenu">
+    <ng-content />
+  </div>
+  <footer>
+    <ng-content select="[footer]" />
+  </footer>
+</section>

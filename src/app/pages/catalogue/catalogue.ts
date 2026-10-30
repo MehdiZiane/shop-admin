@@ -2,9 +2,10 @@ import { Component, computed, signal } from '@angular/core';
 import { Product } from '../../models/product';
 import { ProductCard } from '../../components/product-card/product-card';
 import { CartItem } from '../../models/cart-item';
+import { Panel } from '../../components/panel/panel';
 
 @Component({
-  imports: [ProductCard],
+  imports: [ProductCard, Panel],
   selector: 'app-catalogue',
   styleUrl: './catalogue.scss',
   templateUrl: './catalogue.html',
