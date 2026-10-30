@@ -7,7 +7,7 @@
 
 <section class="grille">
   @for (product of produitsFiltres(); track product.id) {
-    <article [class.out-of-stock]="product.stock === 0">
+    <article [class.out-of-stock]="product.stock === 0" [appLowStock]="product.stock">
       @switch (product.category) {
         @case ('Informatique') {<span>💻</span>}
         @case ('Maison') {<span>🏠</span>}

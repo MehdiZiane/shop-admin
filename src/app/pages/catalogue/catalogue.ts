@@ -2,9 +2,10 @@ import { Component, computed, signal } from '@angular/core';
 import { Product } from '../../models/product';
 import { CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { StockLabelPipe } from '../../pipes/stock-label-pipe';
+import { LowStock } from '../../directives/low-stock';
 
 @Component({
-  imports: [CurrencyPipe, TitleCasePipe, StockLabelPipe],
+  imports: [CurrencyPipe, TitleCasePipe, StockLabelPipe, LowStock],
   selector: 'app-catalogue',
   styleUrl: './catalogue.scss',
   templateUrl: './catalogue.html',
