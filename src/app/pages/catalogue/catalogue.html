@@ -1,6 +1,20 @@
+<div class="filtres"> 
+  <button (click)="selection.set('Toutes')" [class.actif]="selection() === 'Toutes'">Toutes</button>
+  @for (cat of categories; track cat){
+    <button (click)="selection.set(cat)" [class.actif]="selection()=== cat ">{{cat}}</button>
+  }
+</div>
+
 <section class="grille">
-  @for (product of produits(); track product.id) {
+  @for (product of produitsFiltres(); track product.id) {
     <article [class.out-of-stock]="product.stock === 0">
+      @switch (product.category) {
+        @case ('Informatique') {<span>💻</span>}
+        @case ('Maison') {<span>🏠</span>}
+        @case ('Sport') { <span>⚽</span> }
+        @case ('Alimentation') { <span>🍎</span> }
+        @default { <span>📦</span> }
+      }
       <img [src]="product.imageUrl" [alt]="product.name">
       <h2>{{ product.name | titlecase }}</h2>
       <p>{{ product.category }}</p>

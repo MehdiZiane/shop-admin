@@ -17,3 +17,14 @@ article {
 img {
   max-width: 100%;
 }
+
+.filtres {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.filtres button.actif {
+  background: #1976d2;
+  color: white;
+}

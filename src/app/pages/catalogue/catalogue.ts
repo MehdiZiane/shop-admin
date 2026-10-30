@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Product } from '../../models/product';
 import { CurrencyPipe, TitleCasePipe } from '@angular/common';
 import { StockLabelPipe } from '../../pipes/stock-label-pipe';
@@ -27,4 +27,13 @@ export class Catalogue {
   ajouter() {
     this.compteur.update((n) => n + 1);
   }
+
+  categories = ['Informatique', 'Maison', 'Sport', 'Alimentation'];
+  selection = signal('Toutes');
+
+  produitsFiltres = computed(() => {
+    const cat = this.selection();
+    return cat === 'Toutes' ? this.produits()
+      : this.produits().filter((p) => p.category === cat);
+  });
 }
