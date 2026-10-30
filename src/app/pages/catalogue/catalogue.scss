@@ -1,3 +1,19 @@
 .out-of-stock{
     opacity: 0.5;
 }
+
+.grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+article {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+img {
+  max-width: 100%;
+}
