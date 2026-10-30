@@ -7,30 +7,11 @@
 
 <section class="grille">
   @for (product of produitsFiltres(); track product.id) {
-    <article [class.out-of-stock]="product.stock === 0" [appLowStock]="product.stock">
-      @switch (product.category) {
-        @case ('Informatique') {<span>💻</span>}
-        @case ('Maison') {<span>🏠</span>}
-        @case ('Sport') { <span>⚽</span> }
-        @case ('Alimentation') { <span>🍎</span> }
-        @default { <span>📦</span> }
-      }
-      @defer(on viewport){
-        <img [src] = "product.imageUrl" [alt] = "product.name">
-      } @placeholder {
-        <div class = "vignette"></div>
-      } @loading (minimum 300ms) {
-        <div class = "vignette">Chargement...</div>
-      }
-      <h2>{{ product.name | titlecase }}</h2>
-      <p>{{ product.category }}</p>
-      <p>{{ product.price | currency: 'EUR' }}</p>
-      <p>{{ product.stock | stockLabel }}</p>
-      <button (click)="ajouter()" [disabled]="product.stock === 0">Ajouter au panier</button>
-    </article>
+    <app-product-card [product]="product" (addToCart)="ajouter($event)" />
   } @empty {
     <p>Aucun produit à afficher.</p>
   }
 </section>
 
 <p>Dans le panier : {{ compteur() }}</p>
+<p>Dernier ajout : {{dernierAjout()}}</p>

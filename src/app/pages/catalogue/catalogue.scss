@@ -1,21 +1,7 @@
-.out-of-stock{
-    opacity: 0.5;
-}
-
 .grille {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
-}
-
-article {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 12px;
-}
-
-img {
-  max-width: 100%;
 }
 
 .filtres {
@@ -27,14 +13,4 @@ img {
 .filtres button.actif {
   background: #1976d2;
   color: white;
-}
-
-.vignette {
-  width: 200px;
-  height: 150px;
-  background: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #888;
 }

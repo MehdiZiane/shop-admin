@@ -1,11 +1,9 @@
 import { Component, computed, signal } from '@angular/core';
 import { Product } from '../../models/product';
-import { CurrencyPipe, TitleCasePipe } from '@angular/common';
-import { StockLabelPipe } from '../../pipes/stock-label-pipe';
-import { LowStock } from '../../directives/low-stock';
+import { ProductCard } from '../../components/product-card/product-card';
 
 @Component({
-  imports: [CurrencyPipe, TitleCasePipe, StockLabelPipe, LowStock],
+  imports: [ProductCard],
   selector: 'app-catalogue',
   styleUrl: './catalogue.scss',
   templateUrl: './catalogue.html',
@@ -25,8 +23,10 @@ export class Catalogue {
   ]);
 
   compteur = signal(0);
-  ajouter() {
+  dernierAjout = signal('aucun');
+  ajouter(product: Product) {
     this.compteur.update((n) => n + 1);
+    this.dernierAjout.set(product.name);
   }
 
   categories = ['Informatique', 'Maison', 'Sport', 'Alimentation'];
