@@ -28,3 +28,13 @@ img {
   background: #1976d2;
   color: white;
 }
+
+.vignette {
+  width: 200px;
+  height: 150px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}

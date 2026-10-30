@@ -15,7 +15,13 @@
         @case ('Alimentation') { <span>🍎</span> }
         @default { <span>📦</span> }
       }
-      <img [src]="product.imageUrl" [alt]="product.name">
+      @defer(on viewport){
+        <img [src] = "product.imageUrl" [alt] = "product.name">
+      } @placeholder {
+        <div class = "vignette"></div>
+      } @loading (minimum 300ms) {
+        <div class = "vignette">Chargement...</div>
+      }
       <h2>{{ product.name | titlecase }}</h2>
       <p>{{ product.category }}</p>
       <p>{{ product.price | currency: 'EUR' }}</p>
