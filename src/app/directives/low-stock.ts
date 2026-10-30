@@ -9,6 +9,7 @@ import { computed, Directive, input } from '@angular/core';
 })
 export class LowStock {
   stock = input.required<number>({alias : 'appLowStock'});
+  seuil = input(3);
 
-  estFaible = computed(() => this.stock() <= 3);
+  estFaible = computed(() => this.stock() <= this.seuil());
 }
